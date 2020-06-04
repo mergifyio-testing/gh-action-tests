@@ -1,0 +1,11 @@
+on: [push, pull_request, check_run, issue_comment, label, pull_request_review, status]
+
+jobs:
+  Mergify:
+    runs-on: ubuntu-latest
+    name: Mergify Engine Job
+    steps:
+    - id: mergify
+      uses: Mergifyio/action-tests@master
+      with:
+        GITHUBTOKEN: ${{ secrets.GITHUB_TOKEN }}
